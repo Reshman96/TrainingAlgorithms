@@ -1,6 +1,6 @@
 package com.reshman;
 
-public class Main {
+public class LastSurvivorsEp2 {
 
     public static void main(String[] args) {
         System.out.println(lastSurvivors("aazzbpbcfcdsad"));
