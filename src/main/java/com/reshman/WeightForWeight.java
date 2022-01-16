@@ -1,24 +1,19 @@
 package com.reshman;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class WeightForWeight {
 
-    public static void main(String[] args) {
-        System.out.println(orderWeight("1000 534 324 765 654 430 1321"));
-    }
-
-    public static String orderWeight(String strng) {
+    public static String orderWeight(String string) {
         ArrayList<String> stringArray = new ArrayList<>();
 
         // Splitting up the string of digits into individual numbers and adding them to an ArrayList
-        for (String str : strng.split(" ")) {
+        for (String str : string.split(" ")) {
             stringArray.add(str.trim());
         }
 
         // Sorting the array as defined in the challenge
-        Collections.sort(stringArray, (String str1, String str2) -> {
+        stringArray.sort((String str1, String str2) -> {
             if (toNum(str1) > toNum(str2)) {
                 return 1;
             } else if (toNum(str1) < toNum(str2)) {
@@ -29,11 +24,11 @@ public class WeightForWeight {
         });
 
         // Combining the ArrayList into a String of numbers
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (String num : stringArray) {
-            result += " " + num;
+            result.append(" ").append(num);
         }
-        return result.trim();
+        return result.toString().trim();
     }
 
     // Calculating the "weight" of each number
@@ -44,5 +39,4 @@ public class WeightForWeight {
         }
         return wordScore;
     }
-
 }
